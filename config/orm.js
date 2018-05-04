@@ -19,7 +19,7 @@ var orm = {
         console.log(res);
       });
     },
-    insertOne: function(colToSearch,valOfCol) {
+    insertOne: function(table,valOfCol) {
         var queryString = "INSERT INTO ?? VALUES ??";
         connnection.query(queryString, [colToSearch, valOfCol], function(err, res) {
             if (err) throw err;
