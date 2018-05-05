@@ -1,21 +1,37 @@
 
 <div class="row">
-        <div class="burgers col-12">
+        <div class="col-12 burgers">
             <ul>
                 {{#each burger}}
                 {{#unless this.devoured}}
-                    <div class="showBurger"> <!-- bootstrap card? -->
+                    <div class="showBurger"> <!-- bootstrap card? --><!-- bootstrap card? -->
                         {{this.id}}. {{this.burger_name}}
                             <form action="update/{{this.id}}?_method=PUT" method="POST">
                             <input type="hidden" name="devoured" value="1">
-                            <button type="submit" class="btn-success btn btn-lg">Devour Burger</button>
+                            <button type="submit" class="btn btn-success btn-lg">Devour Burger</button>
                             </form>
                     </div>
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
-        <!-- shows burgers 'devoured' here -->
+        <div class="col-12 devoured">
+            <ul>
+                {{#each burger}}
+                {{#if this.devoured}}
+
+                <!-- make it look nice -->
+                <!-- make it look nice -->
+                <!-- make it look nice -->
+
+                {{this.id}}. {{this.burger_name}}
+                <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+              </form>
+              {{/if}}
+              {{/each}}
+            </ul>
+        </div>
 
 
 
