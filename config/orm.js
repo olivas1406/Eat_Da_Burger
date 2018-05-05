@@ -25,6 +25,15 @@ var orm = {
             if (err) throw err;
             console.log(res);
         });
+    },
+    deleteOne: function(table, values1,, values2, callback) {
+        var queryString = 'DELETE FROM ' + table + ' WHERE ' + condition + '=?';
+
+        connection.query(queryString, [values2], function(err, res) {
+            if (err) throw err;
+            console.log(res);
+            callback(res);
+        });
     }
 }
 
