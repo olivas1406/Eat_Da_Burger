@@ -1,4 +1,4 @@
-# <center>burger</center>
+<center># burger</center>
 
 ---
 ### Eat Da Burger is a full stack website built with HTML, CSS, jQuery, Node.js, Express.js, Handlebars.js, and MySQL. Users are able to click a button to 'Devour' one of the burgers listed, or add their own to the database. 
