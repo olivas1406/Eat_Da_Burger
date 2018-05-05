@@ -1,13 +1,29 @@
 
 var orm = require("../config/orm.js")
 
-orm.selectAll("*", "burger_name");
+var burger = {
+    selectAll: function(callback) {
+        orm.selectAll("burgers", function(res) {
+            console.log(res);
+            callback(res)
+        });
+    },
+    insertOne: function(table, values, callback) {
+        orm.insertOne("burgers", table, values, function(res) {
+            console.log(res);
+            callback(res);
+        });
+    },
+    updateOne: function(column, value, callback) {
+        orm.updateOne("burgers", "devoured", column, "id", value, function(res) {
+            callback(res);
+        });
+    },
+    deleteOne: function(value, callback) {
+        orm.deleteOne("burgers", "id", value, function(res) {
+            callback(res);
+        });
+    }
+};
 
-orm.insertOne("burger_name", "newBurgerName");  // <-- Need to pull burger name from form
-
-orm.updateOne("burger_name", "updatedBurger", "burgerID"); // <-- Need to pull ID and update from form
-
-
-// module.exports ?? Export at the end of the burger.js file.  <-- export what???
-
-
+module.exports = burger;

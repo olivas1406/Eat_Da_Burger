@@ -1,13 +1,23 @@
+
 var express = require("express");
-
 var bodyParser = require("body-parser");
+var path = require("path");
+var app = express();
+var exphbs = require('express-handlebars');
+var routes = require('./controllers/burgers_controller.js');
+var PORT = process.env.PORT || 3000;                                // Set the port to 3000 or allow Heroku to decide
 
-var orm = require("./config.orm.js")
+app.use(express.static('public'))                                   // Serve static content
 
-orm.selectAll("*", "burger_name");
+app.use(bodyParser.json());                                         // Use JSON
+app.use(bodyParser.urlencoded({ extended: true }));                 // Allow nested objects
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));     // Media type to parse
 
-orm.insertOne("burgers", "    ");
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
 
-orm.updateOne("id", "burger_name", "    ");
+app.set('view engine', 'handlebars');
 
+app.use('/', routes);
 
