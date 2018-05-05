@@ -30,14 +30,16 @@ router.get("/add", function(req, res) {
     });
 });
 
-router.get("/burgers", function(req, res) {
-    burger.selectAll(function(data) {
-    res.render("burger_name", {burger: data});
+router.get("/update/:id", function(req, res) {
+    burger.updateOne([req.body.devoured], [req.params.id], function() {
+    res.redirect("/");
     });
 });
 
-router.get("/burgers", function(req, res) {
-    burger.selectAll(function(data) {
-    res.render("burger_name", {burger: data});
+router.get("/delete/:id", function(req, res) {
+    burger.deleteOne([req.params.id], function() {
+    res.redirect("/");
     });
 });
+
+module.exports = router;
