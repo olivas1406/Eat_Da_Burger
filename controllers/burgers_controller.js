@@ -12,9 +12,9 @@ router.get("/", function(req, res) {
     };
     burger.selectAll(function(data) {
         for (var i = 0; i < data.length; i++) {
-            info.holdBurger.push(data[i]);
+            holdBurger.burger.push(data[i]);
         }
-        res.render("index", info);
+        res.render("index", holdBurger);
     });
 });
 

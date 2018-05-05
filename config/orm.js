@@ -7,7 +7,7 @@ var orm = {
       connection.query(queryString, [what], function(err, res) {
         if (err) throw err;
         console.log(res);
-        callback(data);   
+        callback(res);   
       });
     },
     insertOne: function(table, values, newBurer, callback) {
