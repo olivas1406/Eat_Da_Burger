@@ -1,11 +1,8 @@
 
 var express = require("express");
-// var app = express();
 var router = express.Router();
 var burger = require("../models/burger.js");
 
-
-//app.get("/", function(req, res) {
 router.get("/", function(req, res) {
     var holdBurger = {
         burger: []
@@ -14,29 +11,36 @@ router.get("/", function(req, res) {
         for (var i = 0; i < data.length; i++) {
             holdBurger.burger.push(data[i]);
         }
+     //   console.log(holdBurger);                // REMOVE ME REMOVE ME
         res.render("index", holdBurger);
+        
     });
 });
 
 router.get("/burgers", function(req, res) {
     burger.selectAll(function(data) {
+
+        console.log(data);                  // REMOVE ME REMOVE ME 
     res.render("burger_name", {burger: data});
+    
     });
 });
 
-router.get("/add", function(req, res) {
+router.post("/add", function(req, res) {
     burger.insertOne([req.body.holdBurger], function() {
     res.redirect("/");
     });
 });
 
-router.get("/update/:id", function(req, res) {
+router.post("/update/:id", function(req, res) {
     burger.updateOne([req.body.devoured], [req.params.id], function() {
+        console.log(req);
+        console.log(res);
     res.redirect("/");
     });
 });
 
-router.get("/delete/:id", function(req, res) {
+router.delete("/delete/:id", function(req, res) {
     burger.deleteOne([req.params.id], function() {
     res.redirect("/");
     });

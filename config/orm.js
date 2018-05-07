@@ -2,36 +2,44 @@
 var connection = require("./connection.js");
 
 var orm = {
-    selectAll: function(what, callback) {
+    selectAll: function(what, callback) {                       // Function to pull all burgers from the DB
      var queryString = "SELECT * FROM " + what + ";";
-      connection.query(queryString, [what], function(err, res) {
-        if (err) throw err;
-     //   console.log(res);                                     REMOVE ME REMOVE ME REMOVE ME
-        callback(res);   
+        connection.query(queryString, function (err, res) {
+            if (err) throw err;        
+            callback(res);   
       });
     },
-    insertOne: function(table, values, newBurer, callback) {
-        var queryString = "INSERT INTO" + table + "VALUES" + values;
+    insertOne: function(table, column, newBurger, callback) {   // Function for adding a new burger
+        var queryString = "INSERT INTO" + table + "VALUES" + newBurger;
         connnection.query(queryString, [table, values], function(err, res) {
+            
+            console.log(queryString);                       //  REMOVE ME REMOVE ME REMOVE ME
+            console.log(newBurger);                         // REMOVE ME REMOVE ME REMOVE ME
+            
             if (err) throw err;
-            console.log(res);
+            callback(res);
         });
     },
-    updateOne: function(table, values, id) {
-        var queryString = "INSERT INTO ?? VALUES ?? WHERE ID = ??";
-        //INSERT INTO `burgers_db`.`burgers` (`id`, `burger_name`) VALUES ('5', 'Steak Burger');  // <-- Actual SQL Commands - need to convert
+    updateOne: function(table, objColVals, condition, callback) {
+        // var queryString = "INSERT INTO ?? VALUES ?? WHERE ID = ??";
+        // var queryString = "UPDATE `burgers_db`.`burgers` SET `devoured`='1' WHERE `id`='6'";
+        //var queryString = "INSERT INTO TABLE ?? WHERE ID = ??"
+        var queryString = "UPDATE " + table + " SET " + objColVals + " WHERE " + condition;
 
-        connection.query(queryString, [table, values, id], function(err, res) {
+        console.log(queryString);                           // REMOVE ME REMOVE ME REMOVE ME
+        connection.query(queryString, function(err, res) {
             if (err) throw err;
-       //     console.log(res);                             REMOVE ME REMOVE ME REMOVE ME
+            callback(res);
         });
     },
-    deleteOne: function(table, values1, values2, callback) {
+    deleteOne: function(table, condition) {
         var queryString = 'DELETE FROM ' + table + ' WHERE ' + condition + '=?';
+        
+        console.log(queryString);                           // REMOVE ME REMOVE ME REMOVE ME
 
-        connection.query(queryString, [values2], function(err, res) {
+        connection.query(queryString, function(err, res) {
             if (err) throw err;
-         //   console.log(res);                             REMOVE ME REMOVE ME REMOVE ME
+        
             callback(res);
         });
     }

@@ -14,9 +14,9 @@ var burger = {
             callback(res);
         });
     },
-    updateOne: function(column, value, callback) {
-        orm.updateOne("burgers", "devoured", column, "id", value, function(res) {
-        //  console.log(res);                                   // REMOVE ME REMOVE ME REMOVE ME
+    updateOne: function(colVals, condition, callback) {
+        orm.updateOne("burgers", colVals, condition, function(res) {
+         console.log(res);                                   // REMOVE ME REMOVE ME REMOVE ME
             callback(res);
         });
     },
