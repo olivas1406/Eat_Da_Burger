@@ -2,8 +2,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-
-
 var app = express();
 var exphbs = require("express-handlebars");
 var routes = require("./controllers/burgers_controller.js");
@@ -21,7 +19,7 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars");
 
-app.use('/', routes);
+app.use("/", routes);
 
 app.listen(PORT);
 console.log("Listening on Port: " + PORT);

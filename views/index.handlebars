@@ -14,14 +14,15 @@
                 {{#unless this.devoured}}
                     <div class="showBurger"> <!-- bootstrap card? --><!-- bootstrap card? -->
                         {{this.id}}. {{this.burger_name}}
-                            <form action="update/{{this.id}}?_method=PUT" method="POST">
-                            <input type="hidden" name="devoured" value="1">
-                            <button type="submit" class="btn btn-success">Devour Burger</button>
+                            <form action="/update/{{this.id}}?_method=PUT" method="POST">
+                                <input type="hidden" name="devoured" value="1">
+                                <button type="submit" class="btn btn-success">Om Nom Nom</button>
                             </form>
                     </div>
                 {{/unless}}
                 {{/each}}
             </ul>
+
         </div>
         <div class="col-6 devoured">
             <h3 class="smallText">Burgers Devoured</h3>
@@ -29,12 +30,8 @@
                 {{#each burger}}
                 {{#if this.devoured}}
 
-                <!-- make it look nice -->
-                <!-- make it look nice -->
-                <!-- make it look nice -->
-
                 {{this.id}}. {{this.burger_name}}
-                <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                <form action="/delete/{{this.id}}?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>
               {{/if}}
@@ -46,7 +43,7 @@
     <div class="row">
         <div class="col-12 addBurger">
             <h3 class="smallText">Add a Burger</h3>
-            <form class="create-update-form" action="burgers/insertOne" method="POST">
+            <form class="create-update-form" action="/insertOne" method="POST">
 				<div class="form-group">
 					<textarea type="text" name="name"></textarea><br>
 					<button class="btn btn-warning" type="submit">Add Burger</button>

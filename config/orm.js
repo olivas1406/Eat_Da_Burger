@@ -17,20 +17,28 @@ var orm = {
             console.log(newBurger);                         // REMOVE ME REMOVE ME REMOVE ME
             
             if (err) throw err;
-            callback(res);
+          //  callback(res);
         });
     },
-    updateOne: function(table, objColVals, condition, callback) {
-        // var queryString = "INSERT INTO ?? VALUES ?? WHERE ID = ??";
-        // var queryString = "UPDATE `burgers_db`.`burgers` SET `devoured`='1' WHERE `id`='6'";
-        //var queryString = "INSERT INTO TABLE ?? WHERE ID = ??"
-        var queryString = "UPDATE " + table + " SET " + objColVals + " WHERE " + condition;
+    //updateOne: function(table, objColVals, condition, callback) {
+    updateOne: function(table, ID, callback) {
+        // actual SQL commands: UPDATE `burgers_db`.`burgers` SET `devoured`='0' WHERE `id`='2';
+   // var queryString = "UPDATE " + table + " SET `devoured`='1' WHERE `id`= 2" ;
+     //   var idNum = JSON.stringify(ID);
+     //  console.log(idNum);
+      var queryString = "UPDATE " + table + " SET `devoured`='1' WHERE `id`= " + ID;
+      //  var queryString = "UPDATE ?? SET `devoured`='1' WHERE `id`= ??";
+
+      //  var queryString = "UPDATE " + table + " SET " + objColVals + " WHERE " + condition;
 
         console.log(queryString);                           // REMOVE ME REMOVE ME REMOVE ME
-        connection.query(queryString, function(err, res) {
+        
+        connection.query(queryString, [table, ID], function(err, res) {
             if (err) throw err;
-            callback(res);
+
         });
+       //  callback(res);
+
     },
     deleteOne: function(table, condition) {
         var queryString = 'DELETE FROM ' + table + ' WHERE ' + condition + '=?';
@@ -40,7 +48,7 @@ var orm = {
         connection.query(queryString, function(err, res) {
             if (err) throw err;
         
-            callback(res);
+          //  callback(res);
         });
     }
 }
