@@ -14,7 +14,7 @@
                 {{#unless this.devoured}}
                     <div class="showBurger"> <!-- bootstrap card? --><!-- bootstrap card? -->
                         {{this.id}}. {{this.burger_name}}
-                            <form action="/update/{{this.id}}?_method=PUT" method="POST">
+                            <form action="/omNomNom/{{this.id}}?_method=PUT" method="POST">
                                 <input type="hidden" name="devoured" value="1">
                                 <button type="submit" class="btn btn-success">Om Nom Nom</button>
                             </form>
@@ -31,7 +31,7 @@
                 {{#if this.devoured}}
 
                 {{this.id}}. {{this.burger_name}}
-                <form action="/delete/{{this.id}}?_method=DELETE" method="POST">
+                <form action="/deleteBurger/{{this.id}}?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>
               {{/if}}
@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-12 addBurger">
             <h3 class="smallText">Add a Burger</h3>
-            <form class="create-update-form" action="/insertOne" method="POST">
+            <form class="create-update-form" action="/AddBurger" method="POST">
 				<div class="form-group">
 					<textarea type="text" name="name"></textarea><br>
 					<button class="btn btn-warning" type="submit">Add Burger</button>
