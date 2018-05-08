@@ -12,19 +12,14 @@ var burger = {
         callback(stew);
     });
     },
-    /*
-    updateOne: function(id, callback) {
-        orm.updateOne("burgers", "devoured", true, "id", id, function(res) {
-            callback(res);
-        });
-    }
-    */
 
-   updateOne: function(id, callback){
-    orm.updateOne("burgers", "devoured", true, "id", id, function(res){
-        callback(res);
+
+updateOne: function(colVal, id, cb) {
+    orm.updateOne(colVal, id, function(res) {
+      cb(res);
     });
-    }
+  }
+
 
 }
 

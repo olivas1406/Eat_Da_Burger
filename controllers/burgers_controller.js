@@ -19,12 +19,16 @@ router.post("/insertOne", function (req, res) {
     });
 });
 
-
-router.put("/updateOne/:id", function(req, res) {
-    burger.updateOne(req.params.id, function(results) {
-        res.redirect("/");
+router.post("/updateOne/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+  
+    console.log("condition", condition);
+  
+    burger.updateOne({
+      devoured: req.body.devoured
+    }, condition, function() {
+      res.redirect("/");
     });
-});
- 
+  });
 
 module.exports = router;
