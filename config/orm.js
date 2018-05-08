@@ -1,4 +1,4 @@
-
+/*
 var connection = require("./connection.js");
 
 var orm = {
@@ -14,7 +14,7 @@ var orm = {
             if (err) throw err;        
             callback(res);   
       });
-    },
+    }, /*
     omNomNom: function(colToUpdate, ID, callback) {                       // Function to pull all burgers from the DB
         var queryString = "UPDATE ?? WHERE ID = ??";
    
@@ -27,7 +27,16 @@ var orm = {
                if (err) throw err;        
                callback(res);   
          });
-       }  
+       }  */
+/*
+       updateOne: function(table, col, colVal, condition, conditionVal, callback){
+        var queryString = 'UPDATE ' + table + ' SET ' + col + '=?' + 'WHERE ' + condition + '=?';
+    
+        connection.query(queryString, [colVal, conditionVal], function(err, data){
+          if(err) throw err;
+          callback(data);
+        });
+      },
     }
 
 
@@ -67,6 +76,48 @@ var orm = {
     }
 }
 */
-
+/*
   module.exports = orm;
+*/
+
+var connection = require("./connection.js");
+
+var orm = {
+    selectAll: function(table, callback) {
+        var queryString = "SELECT * FROM ??;";
+        connection.query(queryString, [table], function(err, res) {
+            if (err) throw err;
+            callback(res);
+        });
+    },
+    insertOne: function(value, callback) {
+        var queryString = "INSERT INTO burgers (burger_name) VALUES ('" + value + "');";
+        connection.query(queryString, function(err, res) {
+            if (err) throw err;
+        });
+
+
+
+
+
+
+    },
+       updateOne: function(table, changeColumn, newValue, idColumn, id, callback) {
+        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?;";
+
+        // UPDATE `burgers_db`.`burgers` SET `devoured`='1' WHERE `id`='4';
+
+        connection.query(queryString, [table, changeColumn, newValue, idColumn, id], function(err, res){
+            if (err) throw err;
+            callback(res);
+        });
+    }
+
+
+       // DELETE - DELETE FROM `burgers_db`.`burgers` WHERE `id`='17';
+}
+
+module.exports = orm;
+
+
 

@@ -1,22 +1,15 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
-var path = require("path");
-var app = express();
 var exphbs = require("express-handlebars");
 var routes = require("./controllers/burgers_controller.js");
-var PORT = process.env.PORT || 3000;                                // Set the port to 3000 or allow Heroku to decide
+var app = express();
+var PORT = process.env.PORT || 1337;
 
-app.use(express.static("public"))                                   // Serve static content from the 'public' folder
+app.use(express.static("public"));
 
 app.use(bodyParser.json());                                         // Use JSON
 app.use(bodyParser.urlencoded({ extended: true }));                 // Allow nested objects
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));     // Media type to parse
-
-////////////////////////////////////////////////////////////////////
-app.use(bodyParser.json({ type: 'application/*+json' }));
-app.use(bodyParser.text({ type: 'text/html' }));
-////////////////////////////////////////////////////////////////////
 
 
 app.engine("handlebars", exphbs({
@@ -25,7 +18,15 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars");
 
-app.use("/", routes);
+app.use(routes);
 
-app.listen(PORT);
+app.listen(PORT, function(){
 console.log("Listening on Port: " + PORT);
+});
+
+
+
+
+
+
+

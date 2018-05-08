@@ -6,19 +6,24 @@
             <hr>
         </div>
     </div>
-    <!--
     <div class="row">
         <div class="col-6 burgers">
             <h3 class="smallText">Burgers Available</h3>
              <ul>
-                {{#each burger}}
+                {{#each burgers}}
                 {{#unless this.devoured}}
-                    <div class="showBurger"> <!-- bootstrap card? --><!-- bootstrap card? -->
-         <!--               {{this.id}}. {{this.burger_name}}
-                            <form action="/omNomNom/{{this.id}}?_method=PUT" method="POST">
+                    <div class="showBurger">
+                        {{this.id}}. {{this.burger_name}}
+						<form action="/updateOne/{{this.id}}" method="POST">
+							<input type="hidden" name="devoured" value="1">
+							<button type="submit" class="btn btn-success">Om Nom Nom</button>
+						</form>
+						<!--
+                            <form action="/updateOne/{{this.id}}?_method=PUT" method="POST">
                                 <input type="hidden" name="devoured" value="1">
                                 <button type="submit" class="btn btn-success">Om Nom Nom</button>
                             </form>
+							-->
                     </div>
                 {{/unless}}
                 {{/each}}
@@ -28,11 +33,10 @@
         <div class="col-6 devoured">
             <h3 class="smallText">Burgers Devoured</h3>
             <ul>
-                {{#each burger}}
+                {{#each burgers}}
                 {{#if this.devoured}}
-
                 {{this.id}}. {{this.burger_name}}
-                <form action="/deleteBurger/{{this.id}}?_method=DELETE" method="POST">
+                <form action="/updateOne/{{this.id}}?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>
               {{/if}}
@@ -44,24 +48,26 @@
     <div class="row">
         <div class="col-12 addBurger">
             <h3 class="smallText">Add a Burger</h3>
-            <form class="create-update-form" action="/AddBurger" method="POST">
+            <form class="create-update-form" action="/insertOne" method="POST">
 				<div class="form-group">
-					<textarea type="text" name="name"></textarea><br>
+					<textarea type="text" name="burger_name"></textarea><br>
 					<button class="btn btn-warning" type="submit">Add Burger</button>
 				</div>
 			</form>
         </div>
     </div>
-    -->
+    
 
 
+
+<!--
 <div class="row">
 
 		<div class="col-md-12">
 			<h1 class="text-center text-danger">Eat-Da-Burger</h1>
 		</div>
 	
-	<!-- end second row -->
+	
 	</div>
 
 	<div class="row">
@@ -99,7 +105,7 @@
 			</ul>
 		</div>
 
-	<!-- end third row -->
+	
 	</div>
 
 	<br><br>
@@ -109,7 +115,7 @@
 		<div class="col-md-12 text-center">
 			<form class="create-update-form" action="addBurger" method="POST">
 				<div class="form-group">
-					<!-- <label for="bg">Burger Name:</label> -->
+					
 					<textarea type="text" name="name"></textarea><br>
 					<button class="btn btn-default" type="submit">Submit</button>
 					<h5 class="text-center">Enter a burger you want to eat and click Submit!</h5>
@@ -117,9 +123,9 @@
 			</form>
 		</div>
 
-	<!-- end fourth row -->
-	</div>
 
+	</div>
+-->
 
 
 
