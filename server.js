@@ -11,7 +11,6 @@ app.use(express.static("public"));
 app.use(bodyParser.json());                                         // Use JSON
 app.use(bodyParser.urlencoded({ extended: true }));                 // Allow nested objects
 
-
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
@@ -23,10 +22,4 @@ app.use(routes);
 app.listen(PORT, function(){
 console.log("Listening on Port: " + PORT);
 });
-
-
-
-
-
-
 
