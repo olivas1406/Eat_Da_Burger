@@ -13,6 +13,12 @@ app.use(bodyParser.json());                                         // Use JSON
 app.use(bodyParser.urlencoded({ extended: true }));                 // Allow nested objects
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));     // Media type to parse
 
+////////////////////////////////////////////////////////////////////
+app.use(bodyParser.json({ type: 'application/*+json' }));
+app.use(bodyParser.text({ type: 'text/html' }));
+////////////////////////////////////////////////////////////////////
+
+
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));

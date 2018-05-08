@@ -7,8 +7,8 @@ var burger = {
             callback(res)
         });
     },
-    omNomNom: function(colToUpdate, ID, callback) { // Change the status of a burger
-        orm.omNomNom("burgers", colToUpdate, ID, function(res) {  
+    omNomNom: function(colVal, colToUpdate, callback) { // Change the status of a burger
+        orm.omNomNom("burgers", colVal, colToUpdate, function(res) {  
             callback(res);
         });
     },

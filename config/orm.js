@@ -5,11 +5,11 @@ var orm = {
     showBurgers: function(what, callback) {                       // Function to pull all burgers from the DB
      var queryString = "SELECT * FROM " + what + ";";
 
-     console.log(queryString);                              // REMOVE ME REMOVE ME
+   //  console.log(queryString);                              // REMOVE ME REMOVE ME
 
         connection.query(queryString, function (err, res) {
             
-            console.log(res);                               // REMOVE ME REMOVE ME
+         //   console.log(res);                               // REMOVE ME REMOVE ME
 
             if (err) throw err;        
             callback(res);   
@@ -27,19 +27,8 @@ var orm = {
                if (err) throw err;        
                callback(res);   
          });
-       }
+       }  
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
