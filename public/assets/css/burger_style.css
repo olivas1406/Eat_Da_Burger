@@ -7,10 +7,22 @@
 
 .smallText {
     text-align: center;
-    color: blanchedalmond;
+    color: purple
 
 }
 
+.addBurger {
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.burgerMan {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18%;
+}
 
-
+body {
+    background-color: yellow;
+}
