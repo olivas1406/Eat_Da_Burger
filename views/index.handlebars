@@ -14,8 +14,8 @@
              <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
-                    <div class="showBurger"><h3>
-                        {{this.id}}. {{this.burger_name}}</h3>
+                    <div class="showBurger"><h5>
+                        {{this.id}}. {{this.burger_name}}</h5>
 						<form action="/updateOne/{{this.id}}" method="POST">
 							<input type="hidden" name="devoured" value="1">
 							<button type="submit" class="btn btn-success">Om Nom Nom</button>
@@ -32,8 +32,8 @@
             <h3 class="smallText">Burgers Devoured</h3>
             <ul>
                 {{#each burgers}}
-                {{#if this.devoured}}<h3>
-                {{this.id}}. {{this.burger_name}}</h3>
+                {{#if this.devoured}}<h5>
+                {{this.id}}. {{this.burger_name}}</h5>
                 <form action="/delete/{{this.id}}?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>
