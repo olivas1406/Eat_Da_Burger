@@ -8,7 +8,6 @@
     text-align: center;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    
 }
 
 .addBurger {
@@ -35,12 +34,10 @@ body {
 .smallText2 {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    
 }
 
 h5 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }

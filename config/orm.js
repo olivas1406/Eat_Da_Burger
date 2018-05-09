@@ -16,12 +16,8 @@ var orm = {
         callback(samwise);
     });
     },
-
-
     updateOne: function(colVal, id, callback) {
-    
     var queryString = "UPDATE burgers SET devoured='1' WHERE " + id + ";";
-    console.log(queryString);
     connection.query(queryString, [id], function(err, result) {
       
       if (err) throw err;
@@ -29,10 +25,8 @@ var orm = {
       callback(result);
     });
   }
-
-
-
-       // DELETE - DELETE FROM `burgers_db`.`burgers` WHERE `id`='17';
+  // deleteOne would go here - out of time
+ // DELETE - DELETE FROM `burgers_db`.`burgers` WHERE `id`='17';
 }
 
 module.exports = orm;

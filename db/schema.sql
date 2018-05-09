@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS burgers_db;
 
 CREATE DATABASE burgers_db;
@@ -11,5 +10,3 @@ devoured BOOLEAN NOT NULL DEFAULT 0,
 date TIMESTAMP NOT NULL,
 PRIMARY KEY (id)
 );
-
-
