@@ -15,4 +15,4 @@ connection.connect(function(err) {      // Create connection
   console.log("connected as id " + connection.threadId);
 });
 
-module.exports = connection;          // Export connection for ORM
+module.exports = connection;            // Export connection for ORM
