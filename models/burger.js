@@ -1,4 +1,3 @@
-
 var orm = require("../config/orm.js");                                     
 
 var burger = {
@@ -17,8 +16,12 @@ var burger = {
         orm.updateOne(colVal, id, function(res) {
             cb(res);
         });
+    },
+    deleteOne: function(id, callback) {
+        orm.deleteOne(id, function(res) {
+            callback(res);
+        });
     }
-    //deleteOne would go here
 };
 
 module.exports = burger;

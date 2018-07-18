@@ -1,4 +1,3 @@
-
 var express = require("express");                               // Require Express for APIs
 var burger = require("../models/burger.js");                    // Make burger.js available here
 var router = express.Router();                                  // Use Express Routing
@@ -28,6 +27,13 @@ router.post("/updateOne/:id", function(req, res) {              // Post request
             console.log("condition after",condition);                            
         res.redirect("/");
     });
-  });
+});
+
+router.post("/deleteOne/:id", function(req, res) {              
+    var condition = "id = " + req.params.id;            
+    burger.deleteOne(condition, function() {
+        res.redirect("/");
+    });
+});
 
 module.exports = router;

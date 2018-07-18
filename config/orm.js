@@ -17,17 +17,21 @@ var orm = {
     });
     },
     updateOne: function(colVal, id, callback) {
-        console.log("ormJS colVal: ", colVal, "id: ", id );
     var queryString = "UPDATE burgers SET devoured='1' WHERE " + id + ";";
-    connection.query(queryString, [id], function(err, result) {
+        connection.query(queryString, [id], function(err, result) {
       
-      if (err) throw err;
+            if (err) throw err;
       
-      callback(result);
-    });
-  }
-  // deleteOne would go here - out of time
- // DELETE - DELETE FROM `burgers_db`.`burgers` WHERE `id`='17';
+        callback(result);
+        });
+    },
+    deleteOne: function(id, callback) {
+        var queryString = "DELETE FROM burgers WHERE " + id + ";";
+        connection.query(queryString, [id], function(err, res) {
+            if (err) throw err;
+            callback(res);
+        });
+    },
 }
 
 module.exports = orm;
