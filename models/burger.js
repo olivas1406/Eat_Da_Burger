@@ -9,6 +9,7 @@ var burger = {
     },  
     insertOne: function (potato, callback) {
         orm.insertOne("burgers", "burger_name", potato, function (stew) {
+            console.log("burgerJS potato: ", potato, "stew: ", stew);
             callback(stew);
         });
     },

@@ -1,13 +1,15 @@
-
 .bigText {
     text-align: center;
     color: blue;
+    font-size: 60px;
+    font-family: 'Merienda', cursive;
+    margin-top: 2%;
 }
 
 .smallText {
     text-align: center;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: black;
+    font-family: 'Chela One', cursive;
 }
 
 .addBurger {
@@ -23,17 +25,19 @@
 }
 
 body {
-    background-color: yellow;
+    background-color: rgb(255, 255, 175);
 }
 
 .moveMe {
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    margin: 0 auto 3% 0;
+
 }
 
 .smallText2 {
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+    color: black;
+    font-family: 'Chela One', cursive;
 }
 
 h5 {

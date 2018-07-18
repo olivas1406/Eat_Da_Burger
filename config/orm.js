@@ -17,6 +17,7 @@ var orm = {
     });
     },
     updateOne: function(colVal, id, callback) {
+        console.log("ormJS colVal: ", colVal, "id: ", id );
     var queryString = "UPDATE burgers SET devoured='1' WHERE " + id + ";";
     connection.query(queryString, [id], function(err, result) {
       

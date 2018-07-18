@@ -14,10 +14,10 @@
                 {{#each burgers}}
                 {{#unless this.devoured}}
                     <div class="showBurger"><h5>
-                        {{this.id}}. {{this.burger_name}}</h5>
+                        {{this.burger_name}}</h5>
 						<form action="/updateOne/{{this.id}}" method="POST">
 							<input type="hidden" name="devoured" value="1">
-							<button type="submit" class="btn btn-success">Om Nom Nom</button>
+							<button type="submit" class="btn btn-success" style="background-color:rgb(48, 48, 119);">Om Nom Nom</button>
 						</form>
                     </div>
                 {{/unless}}
@@ -29,9 +29,9 @@
             <ul>
                 {{#each burgers}}
                 {{#if this.devoured}}<h5>
-                {{this.id}}. {{this.burger_name}}</h5>
+                {{this.burger_name}}</h5>
                 <form action="/delete/{{this.id}}?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger" style="background-color:rgb(116, 13, 13);">Delete</button>
               </form>
               {{/if}}
               {{/each}}
@@ -46,7 +46,7 @@
             <form class="create-update-form" action="/insertOne" method="POST">
 				<div class="form-group">
 					<textarea type="text" name="burger_name"></textarea><br>
-					<button class="btn btn-warning" type="submit">Add Burger</button>
+					<button class="btn btn-warning" type="submit" style="background-color:beige;">Add Burger</button>
 					</div>
 				</div>
 			</form>
