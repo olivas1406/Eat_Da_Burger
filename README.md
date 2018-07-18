@@ -11,7 +11,7 @@ Eat Da Burger
 [CLICK ME to see it in action](https://hidden-bastion-11202.herokuapp.com/)
 <br>
 ---
-![Eat Da Burger Screen Cap](./burger.png)
+![Eat Da Burger Screen Cap](./burger2.png)
 
 This project was created and is maintained by Daniel Olivas
 
