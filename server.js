@@ -15,9 +15,9 @@ app.engine("handlebars", exphbs({                                   // Use the H
     defaultLayout: "main"                                           // Use 'main' for static content
 }));
 
-app.set("view engine", "handlebars");                             
+app.set("view engine", "handlebars");                               // Set the view engine to handlebars
 
-app.use(routes);
+app.use(routes);                                                    // Use burger_controller.js for routes
 
 app.listen(PORT, function(){                                        // Start the app
 console.log("Listening on Port: " + PORT);

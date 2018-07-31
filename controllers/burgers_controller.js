@@ -7,7 +7,6 @@ router.get("/", function(req, res) {                            // Get request
         var burgerBurger = {                                    // Var to hold burger data
             burgers: data
         };
-        
         res.render("index", burgerBurger);                      // Serve the burger data to the index.handlebars page
     });
 });
@@ -20,20 +19,18 @@ router.post("/insertOne", function (req, res) {                 // Post request
 
 router.post("/updateOne/:id", function(req, res) {              // Post request
     var condition = "id = " + req.params.id;                    // Var to hold the 'id' of the burger being devoured
-      console.log("condition before updateOne", condition);
-    burger.updateOne({                                     // Use updateOne from burger.js
-            devoured: req.body.devoured                         
-        }, condition, function() {
-            console.log("condition after",condition);                            
-        res.redirect("/");
+    burger.updateOne({                                          // Use updateOne from burger.js
+            devoured: req.body.devoured                        
+        }, condition, function() {                           
+        res.redirect("/");                                      // Redirect to the homepage
     });
 });
 
-router.post("/deleteOne/:id", function(req, res) {              
-    var condition = "id = " + req.params.id;            
+router.post("/deleteOne/:id", function(req, res) {              // Post request 
+    var condition = "id = " + req.params.id;                    // Var to hold the 'id' of the burger being deleted
     burger.deleteOne(condition, function() {
-        res.redirect("/");
+        res.redirect("/");                                      // Redirect to the homepage
     });
 });
 
-module.exports = router;
+module.exports = router;                                        // Make this available to server.js
